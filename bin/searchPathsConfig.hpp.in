@@ -1,0 +1,13 @@
+#pragma once
+#include <string_view>
+
+#cmakedefine WITH_DB_PATH_RELATIVE_TO_BINARY
+#cmakedefine WITH_DB_PATH_ACCORDING_TO_FHS
+
+constexpr std::string_view dbFileName{"@EMOJIFILT_DB_FILE_NAME@.mo"};
+
+#if defined(WITH_DB_PATH_ACCORDING_TO_FHS)
+constexpr std::string_view resourcesSubdirName{"@EMOJIFILT_RESOURCES_SUBDIR_NAME@"};
+constexpr std::string_view dataRootDir{"@CMAKE_INSTALL_FULL_DATAROOTDIR@"};
+constexpr std::string_view sysConfDir{"@CMAKE_INSTALL_FULL_SYSCONFDIR@"};
+#endif
